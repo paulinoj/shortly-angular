@@ -1,3 +1,8 @@
-<div id='container'>
+<div id='container' ng-controller='LinksController'>
   <!-- Your html here -->
+  <input ng-model='newLink'/>
+  <button ng-click='getLinks(newLink)'>Submit</button>
+  <ul>
+    <li ng-repeat='link in data' ng-click='removeLink($index)'>
+  </ul>
 </div>
