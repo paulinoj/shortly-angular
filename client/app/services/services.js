@@ -14,14 +14,16 @@ angular.module('shortly.services', [])
     });
   };
 
-  var addLink = function(link){
+  var addLink = function(info){
+    console.log(info);
     return $http({
       method: 'POST',
       url: '/api/links',
-      data: link
+      data: info
     })
     .then(function (resp){
-      return resp.data.link;
+      console.log("THIS IS RES" +resp.data)
+      return resp.data.url;
     })
   }
 

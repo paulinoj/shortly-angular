@@ -1,8 +1,9 @@
 <div id='container' ng-controller='LinksController'>
   <!-- Your html here -->
-  <input ng-model='newLink'/>
-  <button ng-click='getLinks(newLink)'>Submit</button>
+  <!-- <input ng-model='newLink'/> -->
   <ul>
-    <li ng-repeat='link in data' ng-click='removeLink($index)'>
+    <a ng-href="#/">Don't have an account? <strong>Signup</strong> ..</a>
+
+    <li ng-repeat='url in data.links' ng-click='removeLink($index)'><a ng-href="#?code={{url.code}}">{{url.url}}</a></li>
   </ul>
 </div>

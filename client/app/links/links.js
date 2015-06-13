@@ -5,16 +5,21 @@ angular.module('shortly.links', [])
   $scope.getLinks = function() {
     Links.getLinks()
     .then(function(data){
+      console.log("DATA");
+      console.log(data);
       $scope.data.links = data;
 
       // $window.localStorage.getAllItem('com.shortly', link);
       //   $location.path('/links');
     })
+
     // $scope.data.push(link);
   };
-  $scope.removeLink = function(index){
-    $scope.data.splice(index, 1);
-  }
+  // $scope.removeLink = function(index){
+  //   $scope.data.splice(index, 1);
+  // }
+  $scope.goTo = function(index){
 
+  }
   $scope.getLinks();
 });
