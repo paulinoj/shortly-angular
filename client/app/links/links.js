@@ -1,7 +1,9 @@
 angular.module('shortly.links', [])
 
-.controller('LinksController', function ($scope, Links, $window, $location) {
+.controller('LinksController', function ($scope, Links, $window, $location, Auth) {
   $scope.data = {};
+  console.log(Auth.isAuth());
+
   $scope.getLinks = function() {
     Links.getLinks()
     .then(function(data){
@@ -21,5 +23,10 @@ angular.module('shortly.links', [])
   $scope.goTo = function(index){
 
   }
-  $scope.getLinks();
+  if(Auth.isAuth()){
+    $scope.getLinks();
+  }
+  else{
+    $scope.data = {};
+  }
 });

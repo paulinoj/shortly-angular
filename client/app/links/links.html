@@ -2,8 +2,13 @@
   <!-- Your html here -->
   <!-- <input ng-model='newLink'/> -->
   <ul>
-    <a ng-href="#/">Don't have an account? <strong>Signup</strong> ..</a>
-
-    <li ng-repeat='url in data.links' ng-click='removeLink($index)'><a ng-href="#?code={{url.code}}">{{url.url}}</a></li>
+    <table>
+      <tr ng-repeat='url in data.links' ng-click='removeLink($index)'>
+        <td><a ng-href="/api/links/{{url.code}}">{{url.url}}</a></td>
+        <td>Visits: {{url.visits}}</td>
+      </tr>
+    </table>
   </ul>
+
 </div>
+
