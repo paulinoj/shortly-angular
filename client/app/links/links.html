@@ -1,14 +1,14 @@
 <div id='container' ng-controller='LinksController'>
   <!-- Your html here -->
   <!-- <input ng-model='newLink'/> -->
+  <input ng-model="searchText"></input>
   <ul>
     <table>
-      <tr ng-repeat='url in data.links' ng-click='removeLink($index)'>
-        <td><a ng-href="/api/links/{{url.code}}">{{url.url}}</a></td>
+      <tr ng-repeat='url in data.links | filter: searchText | orderBy:"-visits"' ng-click='removeLink($index)'>
+        <td><a ng-href="/api/links/{{url.code}}">{{url.title}}</a></td>
         <td>Visits: {{url.visits}}</td>
       </tr>
     </table>
   </ul>
-
 </div>
 
